@@ -15,21 +15,26 @@ var _fotoRoutes = require('./routes/fotoRoutes'); var _fotoRoutes2 = _interopReq
 
 _dotenv2.default.config();
 
-const whiteList = [
-  'http://35.198.12.207:81',
-  'http://localhost:4444',
-  'https://www.wikipedia.org',
-];
-
-const corsOptions = {
-  origin(origin, callback) {
-    if (whiteList.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-};
+/**
+* DEIXAR COMENTADO POIS É NECESSÁRIO. SERÃO AS OPTIONS QUE IRÃO NO CORS, CASO SEJA NECESSÁRIO
+* "BLOQUEAR" ALGUNS DOMÍNIOS. Somente esses domínios da whiteList que poderão acessar a minha api.
+* Irei deixar comentado pois quero que qualquer domínio possa acessar essa api como forma de
+* aprendizado. Caso eu queira utilizar essas opções basta eu passar para dentro do cors.
+*
+* const whiteList = [
+*   'http://35.198.12.207:81',
+*   'http://localhost:4444',
+* ];
+* const corsOptions = {
+*  origin(origin, callback) {
+*    if (whiteList.indexOf(origin) !== -1 || !origin) {
+*      callback(null, true);
+*    } else {
+*      callback(new Error('Not allowed by CORS'));
+*    }
+*  },
+* };
+*/
 
 class App {
   constructor() {
@@ -39,7 +44,7 @@ class App {
   }
 
   middlewares() {
-    this.app.use(_cors2.default.call(void 0, corsOptions));
+    this.app.use(_cors2.default.call(void 0, ));
     // this.app.use(helmet()); DEIXAR COMENTADO POIS NÃO ESTOU UTILIZANDO HTTPS, ESTOU SEM DOMÍNIO
     this.app.use(_express2.default.urlencoded({ extended: true }));
     this.app.use(_express2.default.json());
