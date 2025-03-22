@@ -6,7 +6,7 @@ import './database';
 import delay from 'express-delay';
 import express from 'express';
 import cors from 'cors';
-// import helmet from 'helmet'; DEIXAR COMENTADO POIS NÃO ESTOU UTILIZANDO HTTPS, ESTOU SEM DOMÍNIO
+// import helmet from 'helmet'; DEIXAR COMENTADO POIS NÃO ESTOU UTILIZANDO HTTPS, ESTOU SEM DOMÍNIO.
 
 import homeRoutes from './routes/homeRoutes';
 import userRoutes from './routes/userRoutes';
