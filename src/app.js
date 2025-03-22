@@ -3,6 +3,7 @@ import { resolve } from 'path';
 
 import './database';
 
+import delay from 'express-delay';
 import express from 'express';
 import cors from 'cors';
 // import helmet from 'helmet'; DEIXAR COMENTADO POIS NÃO ESTOU UTILIZANDO HTTPS, ESTOU SEM DOMÍNIO
@@ -46,6 +47,7 @@ class App {
   middlewares() {
     this.app.use(cors());
     // this.app.use(helmet()); DEIXAR COMENTADO POIS NÃO ESTOU UTILIZANDO HTTPS, ESTOU SEM DOMÍNIO
+    this.app.use(delay(2000));
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
     this.app.use('/images/', express.static(resolve(__dirname, '..', 'uploads', 'images')));
