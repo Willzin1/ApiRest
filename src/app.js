@@ -47,7 +47,7 @@ class App {
   middlewares() {
     this.app.use(cors());
     // this.app.use(helmet()); DEIXAR COMENTADO POIS NÃO ESTOU UTILIZANDO HTTPS, ESTOU SEM DOMÍNIO
-    this.app.use(delay(2000));
+    this.app.use(delay());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
     this.app.use('/images/', express.static(resolve(__dirname, '..', 'uploads', 'images')));
